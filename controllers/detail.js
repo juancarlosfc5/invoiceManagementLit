@@ -1,4 +1,4 @@
-// Array para almacenar los detalles del producto
+// Array global para almacenar los detalles del producto
 const detailData = [];
 
 // Función para agregar o actualizar un producto en la tabla de detalles
@@ -18,7 +18,9 @@ export function addProductToDetail(product) {
   }
 
   // Crear un evento personalizado para notificar el cambio en los detalles
-  const event = new CustomEvent("detailUpdated", { detail: { detailData } });
+  const event = new CustomEvent("detailUpdated", {
+    detail: [...detailData], // Envía una copia actualizada del array
+  });
   document.dispatchEvent(event);
 }
 
@@ -29,14 +31,16 @@ export function removeProductFromDetail(cod) {
     detailData.splice(index, 1);
 
     // Crear un evento personalizado para notificar el cambio en los detalles
-    const event = new CustomEvent("detailUpdated", { detail: { detailData } });
+    const event = new CustomEvent("detailUpdated", {
+      detail: [...detailData],
+    });
     document.dispatchEvent(event);
   }
 }
 
 // Función para obtener los detalles del producto
 export function getInvoiceDetails() {
-  return detailData;
+  return [...detailData]; // Devuelve una copia del array
 }
 
 // Función para limpiar los datos del detalle
@@ -44,6 +48,6 @@ export function clearDetails() {
   detailData.length = 0; // Vaciar el array
 
   // Crear un evento personalizado para notificar el cambio en los detalles
-  const event = new CustomEvent("detailUpdated", { detail: { detailData: [] } });
+  const event = new CustomEvent("detailUpdated", { detail: [] });
   document.dispatchEvent(event);
 }

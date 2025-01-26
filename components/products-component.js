@@ -9,10 +9,7 @@ export class ProductsComponent extends LitElement {
 
   render() {
     return html`
-      <link
-        rel="stylesheet"
-        href="node_modules/bootstrap/dist/css/bootstrap.min.css"
-      />
+      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
       <br />
       <div class="container card">
         <div class="card-body text-center">
