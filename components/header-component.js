@@ -1,10 +1,7 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { validateHeaderInputs } from '../controllers/header.js';
 
 export class HeaderComponent extends LitElement {
-  static styles = css`
-    /* Opcional: Agrega estilos personalizados aquí */
-  `;
 
   constructor() {
     super();
